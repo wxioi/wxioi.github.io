@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 06:43:43 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Oct 2020 10:55:18 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Requiremnt.txt Using Pipenv</title>
+      <link>/post/create-requiremnt-txt-using-pipenv/</link>
+      <pubDate>Thu, 15 Oct 2020 10:55:18 +0800</pubDate>
+      
+      <guid>/post/create-requiremnt-txt-using-pipenv/</guid>
+      <description>Instilling pipenv Run the following in your terminal for a user installation:</description>
+    </item>
+    
     <item>
       <title>Tools</title>
       <link>/tools/</link>

@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-10-15T10:55:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/create-requiremnt-txt-using-pipenv/</loc>
+    <lastmod>2020-10-15T10:55:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-10-15T10:55:18+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tools/</loc>
     <lastmod>2020-10-03T08:11:06+08:00</lastmod>
   </url>
@@ -13,17 +28,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-05-28T06:43:43+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/article-130/</loc>
-    <lastmod>2020-05-28T06:43:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-05-28T06:43:43+00:00</lastmod>
   </url>
   
