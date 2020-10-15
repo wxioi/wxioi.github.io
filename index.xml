@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 10:55:18 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Oct 2020 15:59:28 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis批量查询删除KEYS</title>
+      <link>/post/redis-batch-delete-keys/</link>
+      <pubDate>Thu, 15 Oct 2020 15:59:28 +0800</pubDate>
+      
+      <guid>/post/redis-batch-delete-keys/</guid>
+      <description>对腾讯云的Redis</description>
+    </item>
+    
     <item>
       <title>Create Requiremnt.txt Using Pipenv</title>
       <link>/post/create-requiremnt-txt-using-pipenv/</link>
