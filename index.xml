@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 15:59:28 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2020 11:05:02 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to ignore invalid and self signed ssl connection errors with curl</title>
+      <link>/post/curl-insecure-https/</link>
+      <pubDate>Tue, 20 Oct 2020 11:05:02 +0800</pubDate>
+      
+      <guid>/post/curl-insecure-https/</guid>
+      <description>Wanted to curl command to ignore SSL certification warning. (Does curl command have a &amp;ndash;no-check-certificate option like wget command)[https://www.</description>
+    </item>
+    
     <item>
       <title>Redis批量查询删除KEYS</title>
       <link>/post/redis-batch-delete-keys/</link>
@@ -31,7 +40,8 @@
       <pubDate>Sat, 03 Oct 2020 08:11:06 +0800</pubDate>
       
       <guid>/tools/</guid>
-      <description>Golang</description>
+      <description>Golang
+Markdown Guide</description>
     </item>
     
     <item>
