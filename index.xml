@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Oct 2020 11:05:02 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Oct 2020 16:07:43 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Human Sorting</title>
+      <link>/post/human-sorting/</link>
+      <pubDate>Thu, 29 Oct 2020 16:07:43 +0800</pubDate>
+      
+      <guid>/post/human-sorting/</guid>
+      <description>Kate Rhodes wrote a post about simplistic vs. useful sorting: Alphabetical !</description>
+    </item>
+    
     <item>
       <title>How to ignore invalid and self signed ssl connection errors with curl</title>
       <link>/post/curl-insecure-https/</link>
