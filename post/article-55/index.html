@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> Xu | Python包的相对导入时出现错误的解决方法 </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.81.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Code more, Word less">
+    
+    <link rel="stylesheet"
+          href="/css/style.min.bcbc7bde1d41a6366cb1e31ec2d4027a3e5218b4a9019a0ee13ff6bce65bcedf.css"
+          integrity="sha256-vLx73h1BpjZsseMewtQCej5SGLSpAZoO4T/2vOZbzt8="
+          crossorigin="anonymous"
+          type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <link rel="canonical" href="/post/article-55/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="/js/anatole-header.min.7fccea9612e197b0736c6262484db9af65cc9e9c1f1ea31ab6321016549ecff7.js"
+            integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c="
+            crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python包的相对导入时出现错误的解决方法"/>
+<meta name="twitter:description" content="转载地址：https"/>
+
+</head>
+<body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+        <div class="title">
+            <img src="/images/avatar.jpg" alt="profile picture">
+            <h3 title=""><a href="/">Nothing</a></h3>
+            <div class="description">
+                <p>Code more, Word less</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://github.com/wxioi/" rel="me" aria-label="GitHub">
+                    <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:wangxu627@gmail.com" rel="me" aria-label="e-mail">
+                    <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Xu 2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/post/"
+                        
+                   title="">Posts</a></li>
+        
+            
+            <li><a 
+                   href="/tools/"
+                        
+                   title="">Tools</a></li>
+        
+        
+        <li class="theme-switch-item">
+            <a class="theme-switch" title="Switch Theme">
+                <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Python包的相对导入时出现错误的解决方法</h3>
+                
+                    <div class="info">
+                        <em class="fa fa-sun-o"></em>
+                        <span class="date">Wed, Oct 30, 2019</span>
+                        <em class="fa fa-clock-o"></em>
+                        <span class="reading-time">3-minute read</span>
+                    </div>
+                
+            </div>
+
+            <p>转载地址：https://www.cnblogs.com/ArsenalfanInECNU/p/5346751.html</p>
+<p>在练习Python中package的相对导入时，即</p>
+<pre><code>from . import XXX
+</code></pre>
+<p>或者</p>
+<pre><code>from .. import XXX
+</code></pre>
+<p>时会遇到这样两个错误：</p>
+<pre><code>SystemError: Parent module '' not loaded, cannot perform relative import
+</code></pre>
+<p>和</p>
+<pre><code>ValueError: attempted relative import beyond top-level package
+</code></pre>
+<p>其实这两个错误的原因归根结底是一样的：在涉及到相对导入时，package所对应的文件夹必须正确的被python解释器视作package，而不是普通文件夹。否则由于不被视作package，无法利用package之间的嵌套关系实现python中包的相对导入。</p>
+<p>文件夹被python解释器视作package需要满足两个条件：</p>
+<p>**1、文件夹中必须有__init__.py文件，该文件可以为空，但必须存在该文件。**</p>
+<p><strong>2、不能作为顶层模块来执行该文件夹中的py文件（即不能作为主函数的入口）。</strong></p>
+<p>**补充：在&quot;from YY import
+XX&quot;这样的代码中，无论是XX还是YY，只要被python解释器视作package，就会首先调用该package的__init__.py文件。如果都是package，则调用顺序是YY，XX。**</p>
+<p><strong>另外，练习中“from . import XXX”和“from .. import
+XXX”中的'.&lsquo;和&rsquo;..'，可以等同于linux里的shell中'.&lsquo;和&rsquo;..&lsquo;的作用，表示当前工作目录的package和上一级的package。</strong></p>
+<p>举个例子：</p>
+<p>目录树</p>
+<p>testIm/</p>
+<p>--<strong>init</strong>.py</p>
+<p>--main.py : from Tom import tom</p>
+<p>--Tom/</p>
+<p>--<strong>init</strong>.py : print(&ldquo;I&rsquo;m Tom&rsquo;s <strong>init</strong>!&quot;)</p>
+<p>--tom.py : from . import tomBrother, from .. import kate,print(&ldquo;I&rsquo;m Tom!&quot;)</p>
+<p>--tomBrother.py print(I&rsquo;m Tom&rsquo;s Brother!)</p>
+<p>--Kate/</p>
+<p>--<strong>init</strong>.py : print(&ldquo;I&rsquo;m Kate&rsquo;s <strong>init</strong>!&quot;)</p>
+<p>--kate.py</p>
+<p>运行文件：main.py</p>
+<p>结果：</p>
+<pre><code>I'm Tom's __init__!
+I'm Tom's Brother!
+Traceback (most recent call last):
+File &quot;D:\PythonLearning\TestIm\main.py&quot;, line 3, in &lt;module&gt;
+from Tom import tom
+File &quot;D:\PythonLearning\TestIm\Kate\kate.py&quot;, line 4, in &lt;module&gt;
+from .. import kate
+ValueError: attempted relative import beyond top-level package
+&gt;&gt;&gt;
+</code></pre>
+<p>可以看到from . import
+tomBrother顺利执行，首先执行了Tom文件夹下的__init__.py文件，后来执行了tomBrother.py文件，但是当执行到“from ..
+import
+kate”时报错，这是因为我们是在TestIm文件夹下把main.py文件作为主函数的入口执行的，因此尽管TestIm文件夹中有__init__.py文件，但是该文件夹不能被python解释器视作package，即Tom
+package不存在上层packge，自然会报错，相对导入时超出了最高层级的package。</p>
+<p>修改方法：</p>
+<p>目录树</p>
+<p>test/</p>
+<p>--main.py : from testIm.Tom import tom</p>
+<p>--testIm/</p>
+<p>--<strong>init</strong>.py</p>
+<p>--Tom/</p>
+<p>--<strong>init</strong>.py : print(&ldquo;I&rsquo;m Tom&rsquo;s <strong>init</strong>!&quot;)</p>
+<p>--tom.py : from . import tomBrother, from .. import Kate,print(&ldquo;I&rsquo;m Tom!&quot;)</p>
+<p>--tomBrother.py print(I&rsquo;m Tom&rsquo;s Brother!)</p>
+<p>--Kate/</p>
+<p>--<strong>init</strong>.py : print(&ldquo;I&rsquo;m Kate&rsquo;s <strong>init</strong>!&quot;)</p>
+<p>--kate.py</p>
+<p>运行文件：main.py</p>
+<p>结果：</p>
+<pre><code>I'm top's __init__!
+I'm Tom's __init__!
+I'm Tom's Brother!!
+I'm Kate's __init__!
+I'm Tom!
+</code></pre>
+<p>即主函数入口不在TestIm中，则TestIm和其同样包含__init__.py文件的子文件夹都被python解释器视作package，形成相应的嵌套关系。可以正常使用from
+. import XXX和from .. import XXX。</p>
+<p>补充:</p>
+<p>如果相对层级超过两层，则只需要加一个点来表示相对路径，如</p>
+<p>from &hellip; import a # 表示向上2层</p>
+<p>from &hellip;.module2 import c # 向上3层</p>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
+            
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="/js/jquery.min.72e5cdc7ae76325aa57a51c185e2b93c1b216e69c1a4fec5e53a9035977f931e.js"
+        integrity="sha256-cuXNx652MlqlelHBheK5PBshbmnBpP7F5TqQNZd/kx4="
+        crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript"
+        src="/js/bundle.min.c8b242abc1fe7aff347bfd713f638199bc03c20706de4041bd4c06133f49d0a0.js"
+        integrity="sha256-yLJCq8H&#43;ev80e/1xP2OBmbwDwgcG3kBBvUwGEz9J0KA="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js"
+        integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
