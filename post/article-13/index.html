@@ -151,7 +151,7 @@ browser.</p>
 。它依赖的是现有的<code>CSS</code>/<code>HTML</code>/<code>Javascript</code>，而其中最核心的依赖是浏览器提供的<code>XMLHttpRequest</code>对象，是这个对象使得浏览器可以发出<code>HTTP</code>请求与接收<code>HTTP</code>响应。</p>
 <p>所以我用一句话来总结两者的关系：我们使用<code>XMLHttpRequest</code>对象来发送一个<code>Ajax</code>请求。</p>
 <h2 id="xmlhttprequest的发展历程"><code>XMLHttpRequest</code>的发展历程</h2>
-<p><code>XMLHttpRequest</code>一开始只是微软浏览器提供的一个接口，后来各大浏览器纷纷效仿也提供了这个接口，再后来W3C对它进行了标准化，提出了<a href="https://www.w3.org/TR/XMLHttpRequest/"><code>XMLHttpRequest</code>标准</a>。<code>XMLHttpRequest</code>标准又分为<code>Level 1</code>和<code>Level 2</code>。<br>
+<p><code>XMLHttpRequest</code>一开始只是微软浏览器提供的一个接口，后来各大浏览器纷纷效仿也提供了这个接口，再后来W3C对它进行了标准化，提出了<a href="https://www.w3.org/TR/XMLHttpRequest/"><code>XMLHttpRequest</code>标准</a>。<code>XMLHttpRequest</code>标准又分为<code>Level 1</code>和<code>Level 2</code>。<br>
 <code>XMLHttpRequest Level 1</code>主要存在以下缺点：</p>
 <ul>
 <li>
@@ -238,7 +238,7 @@ use”这个网站提供的结果<a href="http://caniuse.com/#search=XMLHttpRequ
 我对每一个问题涉及到的知识点都会进行比较细致地介绍，有些知识点可能是你平时忽略关注的。</p>
 </blockquote>
 <h3 id="如何设置request-header">如何设置request header</h3>
-<p>在发送<code>Ajax</code>请求（实质是一个<a href="http://www.tutorialspoint.com/http/http_header_fields.htm">HTTP</a>请求）时，我们可能需要设置一些请求头部信息，比如<code>content- type</code>、<code>connection</code>、<code>cookie</code>、<code>accept-xxx</code>等。<code>xhr</code>提供了<code>setRequestHeader</code>来允许我们修改请求
+<p>在发送<code>Ajax</code>请求（实质是一个<a href="http://www.tutorialspoint.com/http/http_header_fields.htm">HTTP</a>请求）时，我们可能需要设置一些请求头部信息，比如<code>content- type</code>、<code>connection</code>、<code>cookie</code>、<code>accept-xxx</code>等。<code>xhr</code>提供了<code>setRequestHeader</code>来允许我们修改请求
 header。</p>
 <blockquote>
 <p><code>void setRequestHeader(DOMString header, DOMString value);</code></p>
@@ -294,7 +294,7 @@ xmlhttprequests-getresponseheader)。</p>
 </li>
 </ul>
 <blockquote>
-<p>&ldquo;<code>simple response header</code>&ldquo;包括的 header 字段有：<code>Cache-Control</code>,<code>Content- Language</code>,<code>Content-Type</code>,<code>Expires</code>,<code>Last-Modified</code>,<code>Pragma</code>;<br>
+<p>&ldquo;<code>simple response header</code>&ldquo;包括的 header 字段有：<code>Cache-Control</code>,<code>Content- Language</code>,<code>Content-Type</code>,<code>Expires</code>,<code>Last-Modified</code>,<code>Pragma</code>;<br>
 &ldquo;<code>Access-Control-Expose-Headers</code>&quot;：首先得注意是&rdquo;<code>Access-Control-Expose-Headers</code>&ldquo;进行
 <strong>跨域请求</strong> 时响应头部中的一个字段，对于同域请求，响应头部是没有这个字段的。这个字段中列举的 header
 字段就是服务器允许暴露给客户端访问的字段。</p>
@@ -305,11 +305,11 @@ xmlhttprequests-getresponseheader)。</p>
 <h3 id="如何指定xhrresponse的数据类型">如何指定<code>xhr.response</code>的数据类型</h3>
 <p>有些时候我们希望<code>xhr.response</code>返回的就是我们想要的数据类型。比如：响应返回的数据是纯JSON字符串，但我们期望最终通过<code>xhr.response</code>拿到的直接就是一个
 js 对象，我们该怎么实现呢？<br>
-有2种方法可以实现，一个是<code>level 1</code>就提供的<code>overrideMimeType()</code>方法，另一个是<code>level 2</code>才提供的<code>xhr.responseType</code>属性。</p>
+有2种方法可以实现，一个是<code>level 1</code>就提供的<code>overrideMimeType()</code>方法，另一个是<code>level 2</code>才提供的<code>xhr.responseType</code>属性。</p>
 <h4 id="xhroverridemimetype"><code>xhr.overrideMimeType()</code></h4>
-<p><code>overrideMimeType</code>是<code>xhr level 1</code>就有的方法，所以浏览器兼容性良好。这个方法的作用就是用来重写<code>response</code>的<code>content-type</code>，这样做有什么意义呢？比如：server
+<p><code>overrideMimeType</code>是<code>xhr level 1</code>就有的方法，所以浏览器兼容性良好。这个方法的作用就是用来重写<code>response</code>的<code>content-type</code>，这样做有什么意义呢？比如：server
 端给客户端返回了一份<code>document</code>或者是
-<code>xml</code>文档，我们希望最终通过<code>xhr.response</code>拿到的就是一个<code>DOM</code>对象，那么就可以用<code>xhr.overrideMimeType('text/xml; charset = utf-8')</code>来实现。</p>
+<code>xml</code>文档，我们希望最终通过<code>xhr.response</code>拿到的就是一个<code>DOM</code>对象，那么就可以用<code>xhr.overrideMimeType('text/xml; charset = utf-8')</code>来实现。</p>
 <p>再举一个使用场景，我们都知道<code>xhr level 1</code>不支持直接传输blob二进制数据，那如果真要传输 blob
 该怎么办呢？当时就是利用<code>overrideMimeType</code>方法来解决这个问题的。</p>
 <p>下面是一个获取图片文件的代码示例：</p>
@@ -340,7 +340,7 @@ xhr.send();
 charset=x-user-defined'，使得 <code>xhr</code> 以纯文本格式来解析接收到的blob
 数据，最终用户通过<code>this.responseText</code>拿到的就是图片文件对应的二进制字符串，最后再将其转换为 blob 数据。</p>
 <h4 id="xhrresponsetype"><code>xhr.responseType</code></h4>
-<p><code>responseType</code>是<code>xhr level 2</code>新增的属性，用来指定<code>xhr.response</code>的数据类型，目前还存在些兼容性问题，可以参考本文的【<code>XMLHttpRequest</code>的兼容性】这一小节。那么<code>responseType</code>可以设置为哪些格式呢，我简单做了一个表，如下：</p>
+<p><code>responseType</code>是<code>xhr level 2</code>新增的属性，用来指定<code>xhr.response</code>的数据类型，目前还存在些兼容性问题，可以参考本文的【<code>XMLHttpRequest</code>的兼容性】这一小节。那么<code>responseType</code>可以设置为哪些格式呢，我简单做了一个表，如下：</p>
 <table>
 <thead>
 <tr>
@@ -399,7 +399,7 @@ xhr.onload = function(e) {
 xhr.send();
 </code></pre>
 <h4 id="小结">小结</h4>
-<p>虽然在<code>xhr level 2</code>中，2者是共同存在的。但其实不难发现，<code>xhr.responseType</code>就是用来取代<code>xhr.overrideMimeType()</code>的，<code>xhr.responseType</code>功能强大的多，<code>xhr.overrideMimeType()</code>能做到的<code>xhr.responseType</code>都能做到。所以我们现在完全可以摒弃使用<code>xhr.overrideMimeType()</code>了。</p>
+<p>虽然在<code>xhr level 2</code>中，2者是共同存在的。但其实不难发现，<code>xhr.responseType</code>就是用来取代<code>xhr.overrideMimeType()</code>的，<code>xhr.responseType</code>功能强大的多，<code>xhr.overrideMimeType()</code>能做到的<code>xhr.responseType</code>都能做到。所以我们现在完全可以摒弃使用<code>xhr.overrideMimeType()</code>了。</p>
 <h3 id="如何获取response数据">如何获取response数据</h3>
 <p><code>xhr</code>提供了3个属性来获取请求返回的数据，分别是：<code>xhr.response</code>、<code>xhr.responseText</code>、<code>xhr.responseXML</code></p>
 <ul>
@@ -637,8 +637,8 @@ var completedPercent = event.loaded / event.total;
 <p>如果<code>data</code>是其他类型，则不会设置<code>content-type</code>的默认值</p>
 </li>
 </ul>
-<p>当然这些只是<code>content-type</code>的默认值，但如果用<code>xhr.setRequestHeader()</code>手动设置了中<code>content- type</code>的值，以上默认值就会被覆盖。</p>
-<p>另外需要注意的是，若在断网状态下调用<code>xhr.send(data)</code>方法，则会抛错：<code>Uncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest'</code>。一旦程序抛出错误，如果不 catch 就无法继续执行后面的代码，所以调用
+<p>当然这些只是<code>content-type</code>的默认值，但如果用<code>xhr.setRequestHeader()</code>手动设置了中<code>content- type</code>的值，以上默认值就会被覆盖。</p>
+<p>另外需要注意的是，若在断网状态下调用<code>xhr.send(data)</code>方法，则会抛错：<code>Uncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest'</code>。一旦程序抛出错误，如果不 catch 就无法继续执行后面的代码，所以调用
 <code>xhr.send(data)</code>方法时，应该用 <code>try-catch</code>捕捉错误。</p>
 <pre><code>try{
     xhr.send(data)
@@ -648,11 +648,11 @@ var completedPercent = event.loaded / event.total;
 </code></pre>
 <h3 id="xhrwithcredentials与-cors-什么关系"><code>xhr.withCredentials</code>与 <code>CORS</code> 什么关系</h3>
 <blockquote>
-<p>我们都知道，在发同域请求时，浏览器会将<code>cookie</code>自动加在<code>request header</code>中。但大家是否遇到过这样的场景：在发送跨域请求时，<code>cookie</code>并没有自动加在<code>request header</code>中。</p>
+<p>我们都知道，在发同域请求时，浏览器会将<code>cookie</code>自动加在<code>request header</code>中。但大家是否遇到过这样的场景：在发送跨域请求时，<code>cookie</code>并没有自动加在<code>request header</code>中。</p>
 </blockquote>
-<p>造成这个问题的原因是：在<code>CORS</code>标准中做了规定，默认情况下，浏览器在发送跨域请求时，不能发送任何认证信息（<code>credentials</code>）如&rdquo;<code>cookies</code>&ldquo;和&rdquo;<code>HTTP authentication schemes</code>&quot;。除非<code>xhr.withCredentials</code>为<code>true</code>（<code>xhr</code>对象有一个属性叫<code>withCredentials</code>，默认值为<code>false</code>）。</p>
-<p>所以根本原因是<code>cookies</code>也是一种认证信息，在跨域请求中，<code>client</code>端必须手动设置<code>xhr.withCredentials=true</code>，且<code>server</code>端也必须允许<code>request</code>能携带认证信息（即<code>response header</code>中包含<code>Access-Control-Allow- Credentials:true</code>），这样浏览器才会自动将<code>cookie</code>加在<code>request header</code>中。</p>
-<p>另外，要特别注意一点，一旦跨域<code>request</code>能够携带认证信息，<code>server</code>端一定不能将<code>Access-Control-Allow- Origin</code>设置为<code>*</code>，而必须设置为请求页面的域名。</p>
+<p>造成这个问题的原因是：在<code>CORS</code>标准中做了规定，默认情况下，浏览器在发送跨域请求时，不能发送任何认证信息（<code>credentials</code>）如&rdquo;<code>cookies</code>&ldquo;和&rdquo;<code>HTTP authentication schemes</code>&quot;。除非<code>xhr.withCredentials</code>为<code>true</code>（<code>xhr</code>对象有一个属性叫<code>withCredentials</code>，默认值为<code>false</code>）。</p>
+<p>所以根本原因是<code>cookies</code>也是一种认证信息，在跨域请求中，<code>client</code>端必须手动设置<code>xhr.withCredentials=true</code>，且<code>server</code>端也必须允许<code>request</code>能携带认证信息（即<code>response header</code>中包含<code>Access-Control-Allow- Credentials:true</code>），这样浏览器才会自动将<code>cookie</code>加在<code>request header</code>中。</p>
+<p>另外，要特别注意一点，一旦跨域<code>request</code>能够携带认证信息，<code>server</code>端一定不能将<code>Access-Control-Allow- Origin</code>设置为<code>*</code>，而必须设置为请求页面的域名。</p>
 <h2 id="xhr相关事件"><code>xhr</code>相关事件</h2>
 <h3 id="事件分类">事件分类</h3>
 <p><code>xhr</code>相关事件有很多，有时记起来还挺容易混乱。但当我了解了具体代码实现后，就容易理清楚了。下面是<code>XMLHttpRequest</code>的部分实现代码：</p>

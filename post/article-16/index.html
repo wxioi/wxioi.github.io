@@ -210,7 +210,7 @@ cn/3/reference/datamodel.html#object.<strong>getattr</strong>
 [<code>__getattribute__()</code>](<a href="https://docs.python.org/zh-">https://docs.python.org/zh-</a>
 cn/3/reference/datamodel.html#object.<strong>getattribute</strong>
 &ldquo;object.<strong>getattribute</strong>&quot;) 显式地调用它或是引发了
-<code>[AttributeError](https://docs.python.org/zh- cn/3/library/exceptions.html#AttributeError &quot;AttributeError&quot;)。简单理解就是</code>__getattribute__的优先级比 __getattr__高<br>
+<code>[AttributeError](https://docs.python.org/zh- cn/3/library/exceptions.html#AttributeError &quot;AttributeError&quot;)。简单理解就是</code>__getattribute__的优先级比 __getattr__高<br>
 <code>object.``__setattr__</code>( <em>self</em> ,  <em>name</em> ,  <em>value</em> )  |   此方法在一个属性被尝试赋值时被调用<br>
 <code>object.``__delattr__</code>( <em>self</em> ,  <em>name</em> )|   此方法应该仅在 <code>del obj.name</code>
 对于该对象有意义时才被实现<br>
@@ -225,7 +225,7 @@ cn/3/library/functions.html#dir &ldquo;dir&rdquo;) 会把返回的序列转换�
 <code>object.``__slots__</code>|   这个类变量可赋值为字符串、可迭代对象或由实例使用的变量名构成的字符串序列。  <em><strong>slots</strong></em>
 会为已声明的变量保留空间，并阻止自动为每个实例创建  <em><strong>dict</strong></em>  和  <em><strong>weakref</strong></em> 。<br>
 <code>object.``__call__</code>( <em>self</em> [,  <em>args&hellip;</em> ])|
-此方法会在实例作为一个函数被“调用”时被调用；如果定义了此方法，则 <code>x(arg1, arg2, ...)</code> 就相当于 <code>x.__call__(arg1, arg2, ...)</code> 的快捷方式。<br>
+此方法会在实例作为一个函数被“调用”时被调用；如果定义了此方法，则 <code>x(arg1, arg2, ...)</code> 就相当于 <code>x.__call__(arg1, arg2, ...)</code> 的快捷方式。<br>
 <code>object.``__len__</code>( <em>self</em> )  |   调用此方法以实现内置函数
 <a href="https://docs.python.org/zh-cn/3/library/functions.html#len" title="len"><code>len()</code></a></p>
 <p><code>object.``__getitem__</code>( <em>self</em> ,  <em>key</em> )|   调用此方法以实现 <code>self[key]</code> 的求值<br>
