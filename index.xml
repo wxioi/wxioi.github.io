@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Mar 2021 08:55:04 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 08:02:36 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux查看发行版方法汇总</title>
+      <link>/post/tools-generated-name-2021-03-30t080236/</link>
+      <pubDate>Tue, 30 Mar 2021 08:02:36 +0000</pubDate>
+      
+      <guid>/post/tools-generated-name-2021-03-30t080236/</guid>
+      <description>方法 1： lsb_release 命令 LSB</description>
+    </item>
+    
     <item>
       <title>qqqqqqq</title>
       <link>/post/tools-generated-name-2021-03-19t085504/</link>
