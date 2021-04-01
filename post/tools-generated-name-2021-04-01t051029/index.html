@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Xu | index </title>
+    <title> Xu | Heroku with docker </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.81.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -19,10 +19,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-    <link rel="canonical" href="/tags/index/">
+    <link rel="canonical" href="/post/tools-generated-name-2021-04-01t051029/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="/tags/index/index.xml" title="Xu`s Blog" />
     
     
     
@@ -31,8 +30,8 @@
             integrity="sha256-f8zqlhLhl7BzbGJiSE25r2XMnpwfHqMatjIQFlSez/c="
             crossorigin="anonymous"></script>
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="index"/>
-<meta name="twitter:description" content="Code more, Word less"/>
+<meta name="twitter:title" content="Heroku with docker"/>
+<meta name="twitter:description" content="Install the Heroku CLI Download and install the Heroku CLI."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown">
@@ -103,22 +102,53 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive animated fadeInDown">
-        <ul class="list-with-title">
-            
-                <div class="listing-title">2021</div>
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Heroku with docker</h3>
                 
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="/post/" title="Posts">Posts</a>
-                                <div class="post-time"><span class="date">Apr 1</span></div>
-                            </div>
-                        </div>
-                    </ul>
+                    <div class="info">
+                        <em class="fa fa-sun-o"></em>
+                        <span class="date">Thu, Apr 1, 2021</span>
+                        <em class="fa fa-clock-o"></em>
+                        <span class="reading-time">One-minute read</span>
+                    </div>
                 
+            </div>
+
+            <h4 id="install-the-heroku-cli">Install the Heroku CLI</h4>
+<p>Download and install the  <a href="https://devcenter.heroku.com/articles/heroku-command-line">Heroku CLI</a>.</p>
+<p>If you haven&rsquo;t already, log in to your Heroku account and follow the prompts to create a new SSH public key.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku login
+</code></pre></div><h4 id="log-in-to-container-registry">Log in to Container Registry</h4>
+<p>You must have Docker set up locally to continue. You should see output when you run this command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker ps
+</code></pre></div><p>Now you can sign into Container Registry.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku container:login
+</code></pre></div><h4 id="push-your-docker-based-app">Push your Docker-based app</h4>
+<p>Build the Dockerfile in the current directory and push the Docker image.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku container:push web
+</code></pre></div><h4 id="deploy-the-changes">Deploy the changes</h4>
+<p>Release the newly pushed images to deploy your app.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ heroku container:release web
+</code></pre></div><p>Reference:
+<a href="https://devcenter.heroku.com/categories/deploying-with-docker">Deploying with Docker | Heroku Dev Center</a>
+<a href="https://devcenter.heroku.com/articles/container-registry-and-runtime">Container Registry &amp; Runtime (Docker Deploys) | Heroku Dev Center</a></p>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
             
-        </ul>
+        
     </div>
+
 
         </div>
     </div>
