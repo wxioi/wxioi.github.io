@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Apr 2021 17:29:22 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Apr 2021 17:31:43 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Enable SSH Password Authentication</title>
+      <link>/post/tools-generated-name-2021-04-09t173143/</link>
+      <pubDate>Fri, 09 Apr 2021 17:31:43 +0000</pubDate>
+      
+      <guid>/post/tools-generated-name-2021-04-09t173143/</guid>
+      <description>Some server providers, such as Amazon EC2 and Google Compute Engine, disable SSH password authentication by default.</description>
+    </item>
+    
     <item>
       <title>How to SSH into WSL2 on Windows 10 from an external machine</title>
       <link>/post/tools-generated-name-2021-04-09t172922/</link>
