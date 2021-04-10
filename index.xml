@@ -6,7 +6,16 @@
     <description>Recent content on Xu`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Apr 2021 17:31:43 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2021 14:20:20 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use netsh to forward port to WSL</title>
+      <link>/post/tools-generated-name-2021-04-10t142020/</link>
+      <pubDate>Sat, 10 Apr 2021 14:20:20 +0000</pubDate>
+      
+      <guid>/post/tools-generated-name-2021-04-10t142020/</guid>
+      <description>It&amp;rsquo;s not a bug with WSL 2, WSL 2 is running as a hyper-v virtual machine.</description>
+    </item>
+    
     <item>
       <title>How to Enable SSH Password Authentication</title>
       <link>/post/tools-generated-name-2021-04-09t173143/</link>
